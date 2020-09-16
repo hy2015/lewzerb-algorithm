@@ -1,0 +1,22 @@
+.classpath
+.project
+.settings/
+.metadata/
+target/
+.checkclipse
+.pydevproject
+*.class
+MANIFEST.MF
+
+# === npm & react =====
+node_modules/
+jsconfig.json
+.vscode/
+*.log
+!.npmrc
+
+# === IntelliJ ===
+*.iml
+*.ipr
+*.iws
+.idea/
