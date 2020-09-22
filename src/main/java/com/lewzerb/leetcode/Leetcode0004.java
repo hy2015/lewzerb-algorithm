@@ -26,18 +26,57 @@ public class Leetcode0004 {
      则中位数是 (2 + 3)/2 = 2.5
      */
 
+    public static void main(String[] args) {
+        int[][][] testArr = {
+            {{1, 3}, {2}},
+            {{1, 2}, {3, 4}},
+            {{},{1}},
+            {{0,0,0,0,0},{-1,0,0,0,0,0,1}}
+        };
+
+        Leetcode0004 leetcode0004 = new Leetcode0004();
+
+        for(int[][] testMatrix: testArr){
+            System.out.println(leetcode0004.findMedianSortedArrays(testMatrix[0], testMatrix[1]));
+        }
+    }
+
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] temp;
+        if(nums1.length > nums2.length){
+            temp = nums1;
+            nums1 = nums2;
+            nums2 = temp;
+        }
+
         int m = nums1.length;
         int n = nums2.length;
 
-        int i = m / 2;
-        int j = (m + n - 1) / 2 - i;
+        int i = 0, j = 0;
+        int left = 0, right = m ;
+        int halfLeft = (m + n + 1) / 2;
+        int median1 = 0, median2 = 0;
 
-        while(true){
-            if(i == m || j == n || i == 0 || j==0){
+        while(left <= right){
+            i = (left + right ) /2;
+            j = halfLeft - i;
 
+            int num_i_left = i == 0? Integer.MIN_VALUE: nums1[i - 1];
+            int num_i_right = i == m? Integer.MAX_VALUE: nums1[i];
+            int num_j_left = j == 0? Integer.MIN_VALUE: nums2[j - 1];
+            int num_j_right = j == n? Integer.MAX_VALUE: nums2[j];
+
+            if(num_i_left <= num_j_right){
+                median1 = Math.max(num_i_left, num_j_left);
+                median2 = Math.min(num_i_right, num_j_right);
+                left = i + 1;
+            }else{
+                right = i - 1;
             }
-            if(nums2[j] > )
+
+
         }
+
+        return (m + n) % 2 == 0? (median1 + median2)/2.0 : median1;
     }
 }
