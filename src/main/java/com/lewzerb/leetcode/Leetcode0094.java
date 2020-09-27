@@ -19,13 +19,6 @@ public class Leetcode0094 {
     }
 
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
-
     static class MarkedTreeNode {
         TreeNode node;
         boolean isMarked = false;

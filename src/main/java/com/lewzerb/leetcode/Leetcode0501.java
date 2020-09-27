@@ -35,12 +35,6 @@ public class Leetcode0501 {
         System.out.println(Arrays.toString(leetcode0501.findMode(root)));
     }
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
 
     int maxCount = 0;
     int count = 0;

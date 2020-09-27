@@ -21,14 +21,6 @@ public class Leetcode0968 {
     }
 
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
-
-
 
     public int minCameraCover(TreeNode root) {
         int[] arr = dfs(root);

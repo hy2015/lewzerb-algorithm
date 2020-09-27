@@ -4,13 +4,6 @@ import java.sql.Struct;
 
 public class Leetcode0404 {
 
-    public class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode(int x) { val = x; }
-    }
-
     public int sumOfLeftLeaves(TreeNode root) {
         return dfs(root.left, true) + dfs(root.right, false);
     }

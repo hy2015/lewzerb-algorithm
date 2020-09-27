@@ -17,13 +17,6 @@ public class Leetcode0106 {
         }
     }
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
-
     public void preOrder(TreeNode root){
         if(root==null)return;
         System.out.print(root.val + " ");
