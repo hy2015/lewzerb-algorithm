@@ -9,9 +9,10 @@ public class Leetcode0018 {
     public static void main(String[] args) {
 //        int[] nums = {1, 0, -1, 0, -2, 2};
 //        int[] nums = {0, 0, 0, 0};
-        int[] nums = {-3,-2,-1,0,0,1,2,3};
+//        int[] nums = {-3,-2,-1,0,0,1,2,3};
+        int[] nums = {-1,0,1,2,-1,-4};
         Leetcode0018 leetcode0018 = new Leetcode0018();
-        List<List<Integer>> lists = leetcode0018.fourSum(nums, 0);
+        List<List<Integer>> lists = leetcode0018.fourSum(nums, -1);
         System.out.println(lists.size());
         lists.forEach(System.out::println);
     }
@@ -26,7 +27,7 @@ public class Leetcode0018 {
                 while( nums[i] == nums[i-1] && i<nums.length-3) i++;
             }
             for(int j=i+1; j<nums.length-2; j++){
-                if(j>1){
+                if(j>i+1){
                     while( nums[j] == nums[j-1] && j<nums.length-2) j++;
                 }
                 int l=j+1, r=nums.length-1;
