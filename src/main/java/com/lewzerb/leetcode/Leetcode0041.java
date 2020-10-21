@@ -1,25 +1,33 @@
 package com.lewzerb.leetcode;
 
 public class Leetcode0041 {
-    public int firstMissingPositive(int[] nums) {
-        int count = 0;
-        int left = Integer.MAX_VALUE, right = 0;
-        for(int i=0; i<nums[i]; i++){
-            if(nums[i] > 0){
-                left = Math.min(left, nums[i]);
-                right = Math.max(right, nums[i]);
-                count++;
-            }
-        }
-        if(left > 1) {
-            return 1;
-        }else {
-            if(right == count) {
-                return right + 1;
-            }else {
-                return 1;
-            }
 
+    public static void main(String[] args) {
+        int[] nums = {3,4,-1,1};
+        Leetcode0041 leetcode0041 = new Leetcode0041();
+        System.out.println(leetcode0041.firstMissingPositive(nums));
+    }
+
+    public int firstMissingPositive(int[] nums) {
+        int nplus1 = nums.length + 1;
+
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] <= 0){
+                nums[i] = nplus1;
+            }
         }
+
+        for(int i=0; i<nums.length; i++){
+            if(Math.abs(nums[i]) < nplus1){
+                nums[Math.abs(nums[i])-1] = -Math.abs(nums[Math.abs(nums[i])-1]);
+            }
+        }
+
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] > 0){
+                return i+1;
+            }
+        }
+        return nplus1;
     }
 }
