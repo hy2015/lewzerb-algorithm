@@ -73,7 +73,7 @@ public class Leetcode0005 {
                 }
             }
         }
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for(int i=maxi-max; i<maxi+max; i++){
             if(sc[i] != '#') sb.append(sc[i]);
         }
