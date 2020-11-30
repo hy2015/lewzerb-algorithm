@@ -8,16 +8,16 @@ public class PreIn2PostTest {
         // AEFDHZMG
         // AEFDHZMG
 
-        TreeNode treeNode = preIn2Post(pre, in, pre.length());
+        BTreeNode treeNode = preIn2Post(pre, in, pre.length());
 
         TreeOrdering.postOrder(treeNode);
         System.out.println();
     }
 
-    public static TreeNode preIn2Post(String preArr, String inArr, int length){
+    public static BTreeNode preIn2Post(String preArr, String inArr, int length){
         if(length == 0)  return null;
 
-        TreeNode root = new TreeNode();
+        BTreeNode root = new BTreeNode();
 
         char rootVal = preArr.charAt(0);
         root.setValue(String.valueOf(rootVal));

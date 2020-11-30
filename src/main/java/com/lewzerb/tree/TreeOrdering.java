@@ -3,8 +3,8 @@ package com.lewzerb.tree;
 public class TreeOrdering {
 
     public static void main(String[] args) {
-        TreeNode root = sampleTree();
-        System.out.println(TreeNode.height(root));
+        BTreeNode root = sampleTree();
+        System.out.println(BTreeNode.height(root));
 
         preOrder(root);
         System.out.println();
@@ -14,16 +14,16 @@ public class TreeOrdering {
 
     }
 
-    private static TreeNode sampleTree() {
-        TreeNode root = new TreeNode("G");
+    private static BTreeNode sampleTree() {
+        BTreeNode root = new BTreeNode("G");
 
-        TreeNode a = new TreeNode("A");
-        TreeNode d = new TreeNode("D");
-        TreeNode e = new TreeNode("E");
-        TreeNode f = new TreeNode("F");
-        TreeNode h = new TreeNode("H");
-        TreeNode m = new TreeNode("M");
-        TreeNode z = new TreeNode("Z");
+        BTreeNode a = new BTreeNode("A");
+        BTreeNode d = new BTreeNode("D");
+        BTreeNode e = new BTreeNode("E");
+        BTreeNode f = new BTreeNode("F");
+        BTreeNode h = new BTreeNode("H");
+        BTreeNode m = new BTreeNode("M");
+        BTreeNode z = new BTreeNode("Z");
 
         root.setLeft(d);
         root.setRight(m);
@@ -39,21 +39,21 @@ public class TreeOrdering {
         return root;
     }
 
-    public static void preOrder(TreeNode treeNode){
+    public static void preOrder(BTreeNode treeNode){
         if(treeNode == null) return;
         System.out.print(treeNode.getValue());
         preOrder(treeNode.getLeft());
         preOrder(treeNode.getRight());
     }
 
-    public static void inOrder(TreeNode treeNode){
+    public static void inOrder(BTreeNode treeNode){
         if(treeNode == null) return;
         inOrder(treeNode.getLeft());
         System.out.print(treeNode.getValue());
         inOrder(treeNode.getRight());
     }
 
-    public static void postOrder(TreeNode treeNode){
+    public static void postOrder(BTreeNode treeNode){
         if(treeNode == null) return;
         postOrder(treeNode.getLeft());
         postOrder(treeNode.getRight());

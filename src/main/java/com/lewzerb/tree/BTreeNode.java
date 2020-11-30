@@ -1,14 +1,14 @@
 package com.lewzerb.tree;
 
-public class TreeNode {
+public class BTreeNode {
     private String value;
-    private TreeNode left;
-    private TreeNode right;
+    private BTreeNode left;
+    private BTreeNode right;
 
-    public TreeNode() {
+    public BTreeNode() {
     }
 
-    public TreeNode(String value) {
+    public BTreeNode(String value) {
         this.value = value;
     }
 
@@ -20,23 +20,23 @@ public class TreeNode {
         this.value = value;
     }
 
-    public TreeNode getLeft() {
+    public BTreeNode getLeft() {
         return left;
     }
 
-    public void setLeft(TreeNode left) {
+    public void setLeft(BTreeNode left) {
         this.left = left;
     }
 
-    public TreeNode getRight() {
+    public BTreeNode getRight() {
         return right;
     }
 
-    public void setRight(TreeNode right) {
+    public void setRight(BTreeNode right) {
         this.right = right;
     }
 
-    public static int height(TreeNode treeNode){
+    public static int height(BTreeNode treeNode){
         if(treeNode == null){
             return 0;
         }
@@ -47,31 +47,31 @@ public class TreeNode {
         return 1 + Math.max(height(treeNode.getLeft()), height(treeNode.getRight()));
     }
 
-    public static void singleRotateLeft(TreeNode k2){
-        TreeNode k1 = k2.getLeft();
+    public static void singleRotateLeft(BTreeNode k2){
+        BTreeNode k1 = k2.getLeft();
         k2.setLeft(k1.getRight());
         k1.setRight(k2);
     }
 
-    public static void singleRotateRight(TreeNode k2){
-        TreeNode k1 = k2.getRight();
+    public static void singleRotateRight(BTreeNode k2){
+        BTreeNode k1 = k2.getRight();
         k2.setRight(k1.getLeft());
         k1.setLeft(k2);
     }
 
-    public static void doubleRotateRightLeft(TreeNode k3){
+    public static void doubleRotateRightLeft(BTreeNode k3){
         singleRotateRight(k3.getLeft());
         singleRotateLeft(k3);
     }
 
-    public static void doubleRotateLeftRight(TreeNode k3){
+    public static void doubleRotateLeftRight(BTreeNode k3){
         singleRotateLeft(k3.getRight());
         singleRotateRight(k3);
     }
 
-    public static TreeNode insert(TreeNode node, String newVal){
+    public static BTreeNode insert(BTreeNode node, String newVal){
         if(node == null){
-            return new TreeNode(newVal);
+            return new BTreeNode(newVal);
         }
 
         int compareTo = newVal.compareTo(node.getValue());
@@ -102,6 +102,6 @@ public class TreeNode {
     }
 
     public void insert(String newVal){
-        TreeNode.insert(this, newVal);
+        BTreeNode.insert(this, newVal);
     }
 }
